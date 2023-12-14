@@ -57,3 +57,19 @@ function Validateinputs() {
     }
 
   }
+
+function MessageSend(){
+
+    var my_text ="Hello Dude";
+    var token = "6392067821:AAGz3Aoy_fT6fyOeZm2sAJ_esgdhSXmzFNQ";
+
+    var chat_id= -4012055072;
+    var url = `https://api.telegram.org/bot${token}/sendMessage?chat_id=${chat_id}&text=${my_text}/`
+
+    let api = new XMLHttpRequest();
+    api.open("GET",url,true);
+    api.send();
+
+    console.log("message send successfully");
+}
+//https://api.telegram.org/bot6392067821:AAGz3Aoy_fT6fyOeZm2sAJ_esgdhSXmzFNQ/sendMessage?chat_id=-4012055072&text=hello focks/
