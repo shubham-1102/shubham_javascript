@@ -1,0 +1,22 @@
+dt {
+    font-weight: 700 /* rtl:600 */;
+  }
+
+  #div1{
+    width: 22.33%;
+    float:right;
+    height: auto;
+  }
+
+  #div2{
+    width: 23.33%;
+    float:left;
+    height: auto;
+  }
+
+  #div3{
+    width: 53.33%;
+    margin: 0 auto;
+    height:auto
+  }
+  
