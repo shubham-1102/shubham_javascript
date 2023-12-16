@@ -45,7 +45,7 @@ function Validateinputs() {
 
 
     console.log(flag);
-    if(strikeprice=="" || buyprice=="" || target=="" || targetmax ==""){
+    if(strikeprice =="" || buyprice=="" || target=="" || targetmax ==""){
 
         flag = false;
        console.log(strikeprice || buyprice || target || targetmax == "");
@@ -55,7 +55,7 @@ function Validateinputs() {
     if(flag==false ){
         alert("Please Enter all the Fields");
     }else{
-        TextGenration();
+        MessageSend();
     }
 
    
@@ -105,21 +105,21 @@ function TextGenration(){
     }
     
 
-    Message = "<b>TODAY'S TRADE</b><br>"+
+    Message = "Anusha Trading & It Solution\\nTODAY'S TRADE\\n"+
                 tradeoption.toUpperCase()+" "+strikeprice+" "+calloption.toUpperCase()+"<br>"+
                 "BUY ABOVE "+buyprice+"<br>"+
                 "TARGET <br>"+
                 targetMessage+"++";
-
-     document.getElementById("demo").innerHTML = Message;
+     return Message;
 
 
 }
 
 function MessageSend(){
 
-    var my_text ="Hello Dude";
-    var token = "6392067821:AAGz3Aoy_fT6fyOeZm2sAJ_esgdhSXmzFNQ";
+    var my_text =TextGenration();
+    console.log(my_text);
+    var token = "6392067821:AAHQQefzQhw0dUuPoWEM0Sc9AfAC6Ilpl94";
 
     var chat_id= -4012055072;
     var url = `https://api.telegram.org/bot${token}/sendMessage?chat_id=${chat_id}&text=${my_text}/`
@@ -130,4 +130,4 @@ function MessageSend(){
 
     console.log("message send successfully");
 }
-//https://api.telegram.org/bot6392067821:AAGz3Aoy_fT6fyOeZm2sAJ_esgdhSXmzFNQ/sendMessage?chat_id=-4012055072&text=hello focks/
+//https://api.telegram.org/bot6392067821:AAHQQefzQhw0dUuPoWEM0Sc9AfAC6Ilpl94/sendMessage?chat_id=-4012055072&text=hello focks/
