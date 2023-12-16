@@ -1,8 +1,5 @@
 function Validateinputs() {
     let flag = true;
-
-    
-
     var elements = document.getElementsByName("inlineRadioOptions");
 
     var element = document.getElementsByName("callput");
@@ -17,12 +14,10 @@ function Validateinputs() {
        // alert(elements[i]);
         if (elements[i].checked)
         {
-            
             // flag = elements[i].value;
             flag = true;
            
-            break;
-           
+            break;  
         }else{
             flag = false;
         }
@@ -32,7 +27,6 @@ function Validateinputs() {
         alert("Please Enter all the Fields");
     }
 
-   
     for (var j = 0, l = element.length; j < l; j++)
     {
         if (element[j].checked)
@@ -45,8 +39,9 @@ function Validateinputs() {
         }
     }
 
-    if(strikeprice || buyprice || target || targetmax == ""){
+    if(strikeprice=="" || buyprice=="" || target=="" || targetmax ==""){
         flag = false;
+       console.log(strikeprice || buyprice || target || targetmax == "");
     }
 
     
