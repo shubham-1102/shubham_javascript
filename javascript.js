@@ -1,5 +1,6 @@
 function Validateinputs() {
     let flag = true;
+    let flag2 = true;
 
     var elements = document.getElementsByName("inlineRadioOptions");
     var element = document.getElementsByName("callput");
@@ -12,54 +13,37 @@ function Validateinputs() {
     
     for (var i = 0, l = elements.length; i < l; i++)
     {
-       // alert(elements[i]);
         if (elements[i].checked)
         {
-            // flag = elements[i].value;
-            flag = true;
+            flag2 = true;
             break;  
 
         }else{
-            flag = false;
+            flag2 = false;
         }
     }
 
-    if(flag==false){
-        alert("Please Enter all the Fields qwqwq");
-    }
 
-
-  
     for (var j = 0, p = element.length; j < p; j++)
-
     {
         if (element[j].checked)
         {
-            // flag = elements[i].value;
             flag = true;
             break;
         }else{
             flag = false
         }
     }
-
-
     console.log(flag);
     if(strikeprice =="" || buyprice=="" || target=="" || targetmax ==""){
-
         flag = false;
-       console.log(strikeprice || buyprice || target || targetmax == "");
     }
 
-    console.log(flag);
-    if(flag==false ){
+    if(flag==false || flag2==false){
         alert("Please Enter all the Fields");
     }else{
         MessageSend();
-    }
-
-   
-    
+    }   
   }
 
 function TextGenration(){
@@ -105,25 +89,25 @@ function TextGenration(){
     }
     
 
-    Message = "Anusha Trading & It Solution\\nTODAY'S TRADE\\n"+
-                tradeoption.toUpperCase()+" "+strikeprice+" "+calloption.toUpperCase()+"<br>"+
-                "BUY ABOVE "+buyprice+"<br>"+
-                "TARGET <br>"+
-                targetMessage+"++";
-     return Message;
+    const Message1 = "TODAY'S TRADE";
+    const Message2 = tradeoption.toUpperCase()+" "+strikeprice+" "+calloption.toUpperCase();
+    const Message3 = "BUY ABOVE "+buyprice;
+    const Message4 = "TARGET";
+    const Message5 = targetMessage.toString(10);
+     
+    const token = "6392067821:AAHQQefzQhw0dUuPoWEM0Sc9AfAC6Ilpl94";
+    const chat_id= -4012055072;
+    const url = `https://api.telegram.org/bot${token}/sendMessage?chat_id=${chat_id}&text=${Message1}%0A${Message2}%0A${Message3}%0A${Message4}%0A${Message5}%2B%2B `;
+    return url;
 
 
 }
 
 function MessageSend(){
 
-    var my_text =TextGenration();
-    console.log(my_text);
-    var token = "6392067821:AAHQQefzQhw0dUuPoWEM0Sc9AfAC6Ilpl94";
+    var url = TextGenration();
 
-    var chat_id= -4012055072;
-    var url = `https://api.telegram.org/bot${token}/sendMessage?chat_id=${chat_id}&text=${my_text}/`
-
+    
     let api = new XMLHttpRequest();
     api.open("GET",url,true);
     api.send();
