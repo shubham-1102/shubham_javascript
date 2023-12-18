@@ -56,17 +56,14 @@ function TextGenration(){
     var buyprice = document.getElementById("buyAbove").value;
     var target = parseInt(document.getElementById("target1").value);
     var targetmax = parseInt(document.getElementById("targetmax").value);
-    
-
-    var Message = "";
+    var stoploss = parseInt(document.getElementById("stoploss").value);
     var targetMessage = target.toString(10);
 
 
     
 
     for (var i = 0, l = tradeelements.length; i < l; i++)
-    {
-      
+    { 
         if (tradeelements[i].checked)
         {
             tradeoption = tradeelements[i].value;
@@ -87,17 +84,18 @@ function TextGenration(){
     {
         targetMessage = targetMessage+"-"+ j.toString(10);
     }
-    
 
-    const Message1 = "TODAY'S TRADE";
+    const Message1 = "<b> TODAY'S TRADE %26 It Solutions</b>";
     const Message2 = tradeoption.toUpperCase()+" "+strikeprice+" "+calloption.toUpperCase();
     const Message3 = "BUY ABOVE "+buyprice;
     const Message4 = "TARGET";
     const Message5 = targetMessage.toString(10);
+
+    
      
     const token = "6392067821:AAHQQefzQhw0dUuPoWEM0Sc9AfAC6Ilpl94";
     const chat_id= -4012055072;
-    const url = `https://api.telegram.org/bot${token}/sendMessage?chat_id=${chat_id}&text=${Message1}%0A${Message2}%0A${Message3}%0A${Message4}%0A${Message5}%2B%2B `;
+    const url = `https://api.telegram.org/bot${token}/sendMessage?chat_id=${chat_id}&text=${Message1}%0A${Message2}%0A${Message3}%0A${Message4}%0A${Message5}%2B%2B %0A${"STOPLOSS  "+stoploss}&parse_mode=html `;
     return url;
 
 
@@ -106,8 +104,6 @@ function TextGenration(){
 function MessageSend(){
 
     var url = TextGenration();
-
-    
     let api = new XMLHttpRequest();
     api.open("GET",url,true);
     api.send();
