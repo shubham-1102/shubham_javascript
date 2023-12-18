@@ -57,7 +57,7 @@ function TextGenration(){
     var target = parseInt(document.getElementById("target1").value);
     var targetmax = parseInt(document.getElementById("targetmax").value);
     var stoploss = parseInt(document.getElementById("stoploss").value);
-    var targetMessage = target.toString(10);
+    var targetMessage = target;
 
 
     
@@ -71,7 +71,7 @@ function TextGenration(){
         }
     }
 
-    for (var j = 0, l = callelements.length; j < l; j++)
+    for (let j = 0, l = callelements.length; j < l; j++)
     {
         if (callelements[j].checked)
         {
@@ -80,9 +80,10 @@ function TextGenration(){
         }
     }
     
-    for (var j = target; j <= targetmax; j=j+5)
+    for (let x = target+5; x <= targetmax;x=x+5 )
     {
-        targetMessage = targetMessage+"-"+ j.toString(10);
+        targetMessage = targetMessage+"-"+ x;
+        
     }
 
     const Message1 = "<b> TODAY'S TRADE %26 It Solutions</b>";
